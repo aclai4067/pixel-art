@@ -1,7 +1,8 @@
 import './paintbrush.scss';
+import $ from 'jquery';
 import utilities from '../../helpers/utilities';
 
-const colors = ['green', 'darkorchid', 'papayawhip', 'blanchedalmond', 'tomato', 'cornsilk'];
+const colors = ['rosybrown', 'papayawhip', 'peru', 'lightsalmon', 'dimgrey', 'goldenrod'];
 
 const printColorPicker = () => {
   let colorString = '';
@@ -9,12 +10,22 @@ const printColorPicker = () => {
     const color = colors[i];
     colorString += `
       <div class='form-check form-check-inline'>
-      <input name='color' class='form-check-input color-choice' type='radio'  id='${color}inlineCheckbox1' value='${color}' />
-      <label class='form-check-label' for '${color}inlineCheckbox1'>${color}</label>
+      <input name='color' class='form-check-input color-choice' type='radio'  id='${color}inlineCheckbox${[i]}' value='${color}' />
+      <label class='form-check-label' for '${color}inlineCheckbox${[i]}'>${color}</label>
       </div>
     `;
   }
   utilities.printToDom('colorPicker', colorString);
 };
 
-export default { printColorPicker };
+const paintPixel = (e) => {
+  const pixel = $(e.target);
+  const colorChoice = $('.color-choice:checked').val();
+  pixel.css('backgroundColor', colorChoice);
+};
+
+const attachEvents = () => {
+  $(document).on('click', 'td', paintPixel);
+};
+
+export default { printColorPicker, attachEvents };
