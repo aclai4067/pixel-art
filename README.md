@@ -16,7 +16,11 @@ An application that allows the user to select a color option and paint the grid
 ## Screenshot(s)
 
 Page Load
+
 ![On Page Load](https://raw.githubusercontent.com/aclai4067/pixel-art/master/screenshots/pixel-grid-load.png)
+
+Colors Selected
+
 ![Colors Selected](https://raw.githubusercontent.com/aclai4067/pixel-art/master/screenshots/pixel-grid-selection.png)
 
 
